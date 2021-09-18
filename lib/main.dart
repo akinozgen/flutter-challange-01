@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 // ignore: prefer_const_literals_to_create_immutables
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -59,7 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 150, left: 32, right: 32),
+                padding: Platform.isAndroid
+                    ? EdgeInsets.only(top: 80, left: 32, right: 32)
+                    : EdgeInsets.only(top: 150, left: 32, right: 32),
                 child: Text("Login",
                     style: TextStyle(color: Colors.white, fontSize: 62)),
               ),
@@ -70,7 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 child: Material(
-                  child: formView(),
+                  child: ListView(
+                    children: [formView()],
+                  ),
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(70),
@@ -119,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 64, bottom: 32),
+          padding: const EdgeInsets.only(top: 25, bottom: 32),
           child: Text(
             "Continue with social media",
             style: TextStyle(fontSize: 18, color: Colors.black45),
