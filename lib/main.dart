@@ -146,12 +146,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget socialButton({required Color color, required String text}) {
     return ElevatedButton(
       onPressed: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-        child: Text(text, style: TextStyle(fontSize: 20)),
-      ),
+      child: Text(text, style: TextStyle(fontSize: 20)),
       style: ElevatedButton.styleFrom(
         primary: color,
+        fixedSize: Size(120, 50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
     );
