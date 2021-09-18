@@ -68,12 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("Welcome Back",
                     style: TextStyle(color: Colors.white, fontSize: 26)),
               ),
-              Material(
-                child: formView(),
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(70),
-                    topRight: Radius.circular(70)),
+              Expanded(
+                child: Material(
+                  child: formView(),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(70),
+                      topRight: Radius.circular(70)),
+                ),
               )
             ],
           )
@@ -122,8 +124,30 @@ class _MyHomePageState extends State<MyHomePage> {
             "Continue with social media",
             style: TextStyle(fontSize: 18, color: Colors.black45),
           ),
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            socialButton(color: Colors.blue.shade600, text: 'Facebook'),
+            socialButton(color: Colors.black87, text: 'Github'),
+          ],
         )
       ],
+    );
+  }
+
+  Widget socialButton({required Color color, required String text}) {
+    return ElevatedButton(
+      onPressed: () {},
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+        child: Text(text, style: TextStyle(fontSize: 20)),
+      ),
+      style: ElevatedButton.styleFrom(
+        primary: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      ),
     );
   }
 
@@ -147,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
       style: ElevatedButton.styleFrom(
         primary: Colors.indigo,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        fixedSize: Size(200, 55),
+        fixedSize: Size(210, 60),
       ),
     );
   }
